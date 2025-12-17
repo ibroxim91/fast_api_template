@@ -1,7 +1,7 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 import uvicorn
-from .routes import company_router
+
 
 
 
@@ -12,7 +12,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
-app.include_router(company_router, prefix="/company", tags=["company"])
+
 
 @app.get("/")
 def hello_index():

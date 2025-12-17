@@ -5,7 +5,7 @@ services:
     image: redis:7
   fastapi_app:
     build: .
-    container_name: fastapi_crm
+    container_name: orders_microservice-fastapi_app
     env_file:
       - .env
     ports:
@@ -13,7 +13,7 @@ services:
     volumes:
       - .:/app
     depends_on:
-      - redis  
+      - redis
     command: >
       bash -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload"
 
